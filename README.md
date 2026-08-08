@@ -12,7 +12,7 @@ Helios Cantina is a fictional fine-dining restaurant and social lounge aboard th
 
 The application is intentionally framework-free: the page shell is provided by HTML, styling lives in CSS, and the Home, Menu, and Contact views are created and switched entirely with JavaScript.
 
-**Live Demo:** [Launch Helios Cantina](https://progritit.github.io/REPOSITORY-NAME/)
+**Live Demo:** [Launch Helios Cantina](https://progritit.github.io/restaurant_page/)
 
 ![Helios Cantina home page preview](./assets/images/restaurantpage_preview.png)
 
