@@ -158,7 +158,7 @@ function createReservationForm() {
     const note = document.createElement("p");
     note.classList.add("form-note");
     note.textContent =
-        "Reservations are recommended. We'll confirm your request shortly via your preferred contact method.";
+        "Online reservations are available from 5:00 PM to 9:00 PM. For later seating on extended-light evenings, contact Solaris Comms.";
 
     form.appendChild(nameLabel);
     form.appendChild(nameInput);
@@ -220,9 +220,9 @@ function createContactPage(content) {
     copy.appendChild(divider);
     copy.appendChild(intro);
     copy.appendChild(getInTouch);
-    copy.appendChild(createInfoRow(phoneIcon, ["+1 (888) HELIOS-1", "+1 (888) 435-4671"]));
-    copy.appendChild(createInfoRow(mailIcon, ["hello@helioscantina.sol"]));
-    copy.appendChild(createInfoRow(globeIcon, ["helioscantina.sol"]));
+    copy.appendChild(createInfoRow(phoneIcon, ["+33 3 33 33 33 33", "+33 7 77 77 77 77"]));
+    copy.appendChild(createInfoRow(mailIcon, ["hello@helioscantina.example"]));
+    copy.appendChild(createInfoRow(globeIcon, ["helioscantina.example"]));
     copy.appendChild(createInfoRow(networkIcon, ["@helioscantina", "Solaris Network"]));
 
     const formWrapper = document.createElement("div");
@@ -334,9 +334,6 @@ function createContactPage(content) {
     const footer = document.createElement("footer");
     footer.classList.add("site-footer");
 
-    const copyright = document.createElement("p");
-    copyright.textContent = "\u00A9 " + new Date().getFullYear() + " Helios Cantina. All rights reserved.";
-
     const footerBrand = document.createElement("div");
     footerBrand.classList.add("footer-brand");
     const footerEmblem = document.createElement("img");
@@ -355,7 +352,6 @@ function createContactPage(content) {
     footerLinks.classList.add("footer-links");
     footerLinks.innerHTML = "<span>Privacy Policy</span><span>Terms of Service</span><span>Accessibility</span>";
 
-    footer.appendChild(copyright);
     footer.appendChild(footerBrand);
     footer.appendChild(footerLinks);
 

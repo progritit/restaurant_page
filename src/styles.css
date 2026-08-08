@@ -1211,6 +1211,8 @@ blockquote {
 .email-row button img {
     width: 20px;
     height: 20px;
+    filter: brightness(0) saturate(100%);
+    opacity: 0.8;
 }
 
 .socials {
@@ -1282,6 +1284,7 @@ blockquote {
 
 .footer-brand {
     display: flex;
+    grid-column: 2;
     min-width: 360px;
     flex-direction: column;
     align-items: center;
@@ -1311,6 +1314,7 @@ blockquote {
 
 .footer-links {
     display: flex;
+    grid-column: 3;
     justify-content: flex-end;
     gap: 28px;
     color: #927f60;
