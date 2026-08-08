@@ -145,65 +145,11 @@ blockquote {
 }
 
 .brand-symbol {
-    position: relative;
     width: 86px;
     height: 68px;
     flex: 0 0 86px;
-}
-
-.brand-symbol::before {
-    position: absolute;
-    top: 5px;
-    left: 23px;
-    width: 39px;
-    height: 39px;
-    border: 1px solid rgba(231, 186, 105, 0.7);
-    border-radius: 50%;
-    content: "";
-    box-shadow: 0 0 14px rgba(222, 160, 70, 0.18);
-}
-
-.brand-orbit {
-    position: absolute;
-    left: 4px;
-    width: 78px;
-    height: 23px;
-    border: 1px solid var(--champagne);
-    border-radius: 50%;
-    opacity: 0.8;
-}
-
-.brand-orbit-one {
-    top: 40px;
-}
-
-.brand-orbit-two {
-    top: 36px;
-    transform: rotate(-7deg);
-    opacity: 0.45;
-}
-
-.brand-sun {
-    position: absolute;
-    top: 24px;
-    left: 34px;
-    width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #fff1c7 0 10%, #f3cf82 42%, #d69738 100%);
-    box-shadow: 0 0 15px rgba(238, 183, 81, 0.6);
-}
-
-.brand-sun::before {
-    position: absolute;
-    inset: -14px;
-    border-radius: 50%;
-    background: repeating-conic-gradient(from 0deg,
-            rgba(229, 179, 88, 0.8) 0deg 1deg,
-            transparent 1deg 11deg);
-    content: "";
-    -webkit-mask: radial-gradient(circle, transparent 0 45%, #000 48% 54%, transparent 57%);
-    mask: radial-gradient(circle, transparent 0 45%, #000 48% 54%, transparent 57%);
+    background: url("../assets/icons/helios-emblem.svg") center / contain no-repeat;
+    filter: drop-shadow(0 0 9px rgba(222, 160, 70, 0.16));
 }
 
 .brand-copy p {
@@ -305,7 +251,11 @@ blockquote {
 }
 
 .gold-button {
+    display: inline-flex;
     min-height: 59px;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
     padding: 0 31px;
     border: 1px solid #e3b260;
     background: linear-gradient(115deg, #e0ad5c 0%, #f0cd88 48%, #d69a42 100%);
@@ -318,8 +268,10 @@ blockquote {
     filter: brightness(1.06);
 }
 
-.gold-button span {
-    margin-left: 18px;
+.button-icon {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 auto;
 }
 
 .solar-divider {
@@ -340,19 +292,27 @@ blockquote {
     background: linear-gradient(90deg, var(--gold-line), transparent);
 }
 
-.solar-divider b {
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1;
-    text-shadow: 0 0 10px rgba(221, 162, 67, 0.5);
+.solar-divider img {
+    width: 23px;
+    height: 23px;
+    filter: drop-shadow(0 0 5px rgba(221, 162, 67, 0.34));
 }
 
 .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
     margin-bottom: 5px;
     color: var(--gold-bright);
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.36em;
+}
+
+.eyebrow-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
 }
 
 /* ---------- Home ---------- */
@@ -366,6 +326,19 @@ blockquote {
     height: 480px;
     overflow: hidden;
     border-bottom: 1px solid var(--gold-line);
+}
+
+.home-hero::before {
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+    bottom: -40px;
+    left: -16px;
+    width: clamp(150px, 18vw, 285px);
+    background: url("../assets/decorations/botanical-frond.svg") left bottom / contain no-repeat;
+    content: "";
+    opacity: 0.72;
+    pointer-events: none;
 }
 
 .home-hero-image,
@@ -455,33 +428,33 @@ blockquote {
 .home-experience::before,
 .home-experience::after {
     position: absolute;
-    border: 1px solid rgba(209, 151, 66, 0.14);
-    border-radius: 50%;
     content: "";
     pointer-events: none;
 }
 
 .home-experience::before {
-    top: 40px;
-    left: -205px;
-    width: 640px;
-    height: 315px;
+    inset: 0;
+    background: url("../assets/decorations/orbital-lines.svg") center / cover no-repeat;
+    opacity: 0.84;
 }
 
 .home-experience::after {
-    right: -420px;
-    bottom: -420px;
-    width: 900px;
-    height: 600px;
-    box-shadow:
-        0 0 0 55px rgba(213, 163, 75, 0.025),
-        0 0 0 110px rgba(213, 163, 75, 0.018);
+    right: -160px;
+    bottom: -185px;
+    width: 560px;
+    height: 390px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(224, 139, 42, 0.34), rgba(177, 91, 20, 0.08) 39%, transparent 68%);
 }
 
 .section-heading {
     position: relative;
     z-index: 2;
     text-align: center;
+}
+
+.section-heading .eyebrow {
+    justify-content: center;
 }
 
 .section-heading h2 {
@@ -532,16 +505,10 @@ blockquote {
 }
 
 .experience-icon {
-    display: grid;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     margin-left: 18px;
-    place-items: center;
-    border: 1px solid rgba(213, 163, 75, 0.55);
-    border-radius: 50%;
-    color: var(--gold);
-    font-family: var(--display);
-    font-size: 22px;
+    object-fit: contain;
 }
 
 .experience-card h3 {
@@ -561,7 +528,10 @@ blockquote {
 .text-button {
     position: relative;
     z-index: 2;
-    display: block;
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 9px;
     margin: 0 auto;
     padding: 5px 2px 7px;
     border: 0;
@@ -569,6 +539,11 @@ blockquote {
     background: transparent;
     color: var(--gold);
     font-size: 11px;
+}
+
+.arrow-icon {
+    width: 19px;
+    height: 19px;
 }
 
 .text-button:hover {
@@ -597,13 +572,11 @@ blockquote {
 
 .menu-intro::after {
     position: absolute;
-    top: -250px;
-    right: -100px;
-    width: 650px;
-    height: 520px;
-    border: 1px solid rgba(213, 163, 75, 0.16);
-    border-radius: 50%;
+    z-index: 1;
+    inset: 0;
+    background: url("../assets/decorations/orbital-lines.svg") 82% 36% / 115% auto no-repeat;
     content: "";
+    opacity: 0.72;
     pointer-events: none;
 }
 
@@ -634,6 +607,8 @@ blockquote {
 }
 
 .menu-featured-image {
+    position: relative;
+    z-index: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -678,6 +653,14 @@ blockquote {
     margin-right: 7px;
 }
 
+.menu-heading-icon {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-right: 7px;
+    vertical-align: -4px;
+}
+
 .menu-item {
     margin-bottom: 18px;
 }
@@ -699,9 +682,11 @@ blockquote {
 }
 
 .signature-star {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
     margin-left: 7px;
-    color: var(--gold);
-    font-size: 11px;
+    vertical-align: -3px;
 }
 
 .menu-price {
@@ -734,11 +719,20 @@ blockquote {
 }
 
 .signature-note strong {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     margin-bottom: 2px;
     color: var(--gold-bright);
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.15em;
+}
+
+.signature-note-icon {
+    width: 16px;
+    height: 16px;
 }
 
 .menu-lower {
@@ -778,14 +772,13 @@ blockquote {
 
 .menu-quote::before {
     position: absolute;
-    right: 72%;
-    bottom: -160px;
-    width: 380px;
-    height: 300px;
-    border: 1px solid rgba(217, 158, 64, 0.22);
-    border-radius: 50%;
+    inset: 0;
+    background:
+        url("../assets/decorations/orbital-lines.svg") 13% 78% / 215% auto no-repeat,
+        radial-gradient(circle at 0 100%, rgba(214, 122, 25, 0.25), transparent 42%);
     content: "";
-    box-shadow: 0 0 30px rgba(214, 122, 25, 0.17);
+    opacity: 0.86;
+    pointer-events: none;
 }
 
 .menu-quote>span {
@@ -815,14 +808,10 @@ blockquote {
 }
 
 .mini-orbit {
-    display: grid;
-    width: 51px;
-    height: 51px;
-    place-items: center;
+    width: 68px;
+    height: 68px;
     margin-bottom: 11px;
-    border: 1px solid rgba(213, 163, 75, 0.52);
-    border-radius: 50%;
-    font-size: 25px;
+    object-fit: contain;
 }
 
 .menu-closing p {
@@ -832,10 +821,22 @@ blockquote {
     line-height: 1.75;
 }
 
-.menu-closing>span {
-    width: 65px;
-    padding-top: 5px;
-    border-top: 1px solid rgba(213, 163, 75, 0.45);
+.closing-divider {
+    display: grid;
+    width: 92px;
+    grid-template-columns: 1fr 20px 1fr;
+    align-items: center;
+    gap: 5px;
+}
+
+.closing-divider span {
+    height: 1px;
+    background: rgba(213, 163, 75, 0.45);
+}
+
+.closing-divider img {
+    width: 20px;
+    height: 20px;
 }
 
 .allergy-note {
@@ -914,10 +915,9 @@ blockquote {
 }
 
 .contact-icon {
-    color: var(--gold);
-    font-size: 19px;
-    line-height: 1.25;
-    text-align: center;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
 
 .contact-info-row p {
@@ -944,12 +944,24 @@ blockquote {
 }
 
 .reservation-form h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     margin-bottom: 16px;
     color: var(--gold-bright);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.25em;
     text-align: center;
+}
+
+.heading-solar-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    vertical-align: -4px;
 }
 
 .reservation-form label {
@@ -980,7 +992,25 @@ blockquote {
 }
 
 .reservation-form select {
+    padding-right: 34px;
+    appearance: none;
+    background-image: url("../assets/icons/chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px 15px;
     color-scheme: dark;
+}
+
+.reservation-form input[type="date"] {
+    padding-right: 36px;
+    background-image: url("../assets/icons/calendar.svg");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    background-size: 18px 18px;
+}
+
+.reservation-form input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
 }
 
 .reservation-form textarea {
@@ -1026,6 +1056,7 @@ blockquote {
     padding: 23px 58px 22px;
     border-bottom: 1px solid rgba(213, 163, 75, 0.38);
     background:
+        url("../assets/decorations/orbital-lines.svg") center / cover no-repeat,
         radial-gradient(circle at 100% 100%, rgba(210, 123, 28, 0.18), transparent 18rem),
         #070a0b;
 }
@@ -1063,6 +1094,10 @@ blockquote {
     margin-right: 8px;
 }
 
+.contact-bottom-column h2 .heading-solar-icon {
+    margin-right: 8px;
+}
+
 .contact-bottom-column p {
     margin: 0 0 3px;
     color: #c6b8a1;
@@ -1080,6 +1115,10 @@ blockquote {
 }
 
 .small-outline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     min-height: 40px;
     margin-top: 12px;
     padding: 0 18px;
@@ -1087,6 +1126,16 @@ blockquote {
     background: #080a0b;
     color: var(--gold-bright);
     font-size: 9px;
+}
+
+.small-outline-button img {
+    width: 17px;
+    height: 17px;
+}
+
+.small-outline-button .button-icon {
+    width: 17px;
+    height: 17px;
 }
 
 .small-outline-button:hover {
@@ -1107,10 +1156,16 @@ blockquote {
 }
 
 .email-row button {
+    display: grid;
+    place-items: center;
     border: 1px solid var(--gold-bright);
     background: linear-gradient(135deg, #e8bd75, #c98e3e);
     color: #1b150d;
-    font-size: 20px;
+}
+
+.email-row button img {
+    width: 20px;
+    height: 20px;
 }
 
 .socials {
@@ -1126,8 +1181,11 @@ blockquote {
     place-items: center;
     border: 1px solid rgba(213, 163, 75, 0.64);
     border-radius: 50%;
-    color: var(--gold-bright);
-    font-size: 13px;
+}
+
+.socials img {
+    width: 18px;
+    height: 18px;
 }
 
 .site-footer {
@@ -1139,7 +1197,9 @@ blockquote {
     gap: 20px;
     padding: 14px 62px 28px;
     overflow: hidden;
-    background: #050809;
+    background:
+        url("../assets/decorations/orbital-lines.svg") center 52% / cover no-repeat,
+        #050809;
 }
 
 .site-footer::before,
@@ -1184,9 +1244,11 @@ blockquote {
     text-align: center;
 }
 
-.footer-sun {
-    margin-bottom: 2px;
-    font-size: 29px;
+.footer-emblem {
+    width: 84px;
+    height: 58px;
+    margin-bottom: -5px;
+    object-fit: contain;
 }
 
 .footer-brand strong {
@@ -1208,6 +1270,54 @@ blockquote {
     gap: 28px;
     color: #927f60;
     font-size: 9px;
+}
+
+/* ---------- Developer footer ---------- */
+
+.developer-footer {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 11px 24px;
+    border-top: 1px solid rgba(213, 163, 75, 0.22);
+    background: #030607;
+    color: #927f60;
+}
+
+.developer-footer p {
+    margin: 0;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+.developer-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.developer-links a {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    place-items: center;
+    border: 1px solid rgba(213, 163, 75, 0.4);
+    border-radius: 50%;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease;
+}
+
+.developer-links a:hover {
+    border-color: var(--gold-bright);
+    background: rgba(213, 163, 75, 0.08);
+}
+
+.developer-links img {
+    width: 16px;
+    height: 16px;
 }
 
 /* ---------- Responsive adjustments ---------- */

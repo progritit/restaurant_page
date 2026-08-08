@@ -1,6 +1,8 @@
 import seaBass from "../assets/images/menu/prominence-sea-bass.webp";
 import lambRack from "../assets/images/menu/solaris-lamb-rack.webp";
 import stellarCitrus from "../assets/images/menu/stellar-citrus.webp";
+import solarStarIcon from "../assets/icons/solar-star.svg";
+import orbitalSealIcon from "../assets/icons/orbital-seal.svg";
 
 const solarBites = [
     { name: "LUMEN OYSTER", description: "Pearl emulsion, yuzu kosho, sun salt", price: "24", signature: true },
@@ -10,7 +12,7 @@ const solarBites = [
 ];
 
 const mainOrbit = [
-    { name: "PROMINENCE SEA BASS", description: "Charred fennel, saffron veloutÃ©, citrus ash", price: "58", signature: true },
+    { name: "PROMINENCE SEA BASS", description: "Charred fennel, saffron velout\u00E9, citrus ash", price: "58", signature: true },
     { name: "SOLARIS LAMB RACK", description: "Smoked aubergine, black garlic, rosemary jus", price: "62" },
     { name: "ORBITAL RISOTTO", description: "Wild mushrooms, truffle orbit, parmesan star dust", price: "46" },
     { name: "HELIOPLANKTON PASTA", description: "Squid ink linguine, uni cream, bottarga", price: "48" },
@@ -40,10 +42,10 @@ function createMenuItem(item) {
     name.textContent = item.name;
 
     if (item.signature) {
-        const star = document.createElement("span");
+        const star = document.createElement("img");
         star.classList.add("signature-star");
-        star.setAttribute("aria-label", "Chef's signature");
-        star.textContent = "âœ¦";
+        star.src = solarStarIcon;
+        star.alt = "Chef's signature";
         name.appendChild(star);
     }
 
@@ -67,7 +69,14 @@ function createMenuSection(title, items, includeSignatureNote) {
     section.classList.add("menu-section");
 
     const heading = document.createElement("h2");
-    heading.innerHTML = "<span aria-hidden=\"true\">âœ¦</span> " + title;
+    const headingIcon = document.createElement("img");
+    headingIcon.classList.add("menu-heading-icon");
+    headingIcon.src = solarStarIcon;
+    headingIcon.alt = "";
+    const headingText = document.createElement("span");
+    headingText.textContent = " " + title;
+    heading.appendChild(headingIcon);
+    heading.appendChild(headingText);
     section.appendChild(heading);
 
     for (let i = 0; i < items.length; i += 1) {
@@ -77,8 +86,17 @@ function createMenuSection(title, items, includeSignatureNote) {
     if (includeSignatureNote) {
         const signature = document.createElement("div");
         signature.classList.add("signature-note");
-        signature.innerHTML =
-            "<strong>CHEF'S SIGNATURE âœ¦</strong><span>Dishes marked with a solar icon are<br />Chef Solen's personal creations.</span>";
+        const signatureHeading = document.createElement("strong");
+        signatureHeading.textContent = "CHEF'S SIGNATURE";
+        const signatureIcon = document.createElement("img");
+        signatureIcon.classList.add("signature-note-icon");
+        signatureIcon.src = solarStarIcon;
+        signatureIcon.alt = "";
+        signatureHeading.appendChild(signatureIcon);
+        const signatureText = document.createElement("span");
+        signatureText.innerHTML = "Dishes marked with a solar icon are<br />Chef Solen's personal creations.";
+        signature.appendChild(signatureHeading);
+        signature.appendChild(signatureText);
         section.appendChild(signature);
     }
 
@@ -97,7 +115,14 @@ function createMenuPage(content) {
 
     const eyebrow = document.createElement("p");
     eyebrow.classList.add("eyebrow");
-    eyebrow.innerHTML = "THE HELIOS MENU <span aria-hidden=\"true\">âœ¦</span>";
+    const eyebrowText = document.createElement("span");
+    eyebrowText.textContent = "THE HELIOS MENU";
+    const eyebrowIcon = document.createElement("img");
+    eyebrowIcon.classList.add("eyebrow-icon");
+    eyebrowIcon.src = solarStarIcon;
+    eyebrowIcon.alt = "";
+    eyebrow.appendChild(eyebrowText);
+    eyebrow.appendChild(eyebrowIcon);
 
     const title = document.createElement("h1");
     title.innerHTML = "Cuisine in Orbit.<br />Crafted by Light.";
@@ -105,7 +130,14 @@ function createMenuPage(content) {
     const divider = document.createElement("div");
     divider.classList.add("solar-divider");
     divider.setAttribute("aria-hidden", "true");
-    divider.innerHTML = "<span></span><b>âœ¦</b><span></span>";
+    const dividerLeft = document.createElement("span");
+    const dividerStar = document.createElement("img");
+    dividerStar.src = solarStarIcon;
+    dividerStar.alt = "";
+    const dividerRight = document.createElement("span");
+    divider.appendChild(dividerLeft);
+    divider.appendChild(dividerStar);
+    divider.appendChild(dividerRight);
 
     introTitle.appendChild(eyebrow);
     introTitle.appendChild(title);
@@ -114,7 +146,7 @@ function createMenuPage(content) {
     const introCopy = document.createElement("p");
     introCopy.classList.add("menu-intro-copy");
     introCopy.textContent =
-        "Every dish is a translation of the sunâ€”its elements, its motion, its generosity. We source from orbital gardens, terrestrial artisans, and the farthest reaches of the Solaris Network to create a dining experience that is both rooted and boundless.";
+        "Every dish is a translation of the sun\u2014its elements, its motion, its generosity. We source from orbital gardens, terrestrial artisans, and the farthest reaches of the Solaris Network to create a dining experience that is both rooted and boundless.";
 
     const featuredImage = document.createElement("img");
     featuredImage.classList.add("menu-featured-image");
@@ -138,7 +170,7 @@ function createMenuPage(content) {
     const quote = document.createElement("blockquote");
     quote.classList.add("menu-quote");
     quote.innerHTML =
-        "<span aria-hidden=\"true\">â€œ</span>To dine beneath the sun<br />is to remember where<br />we come from.<cite>â€” CHEF SOLEN</cite>";
+        "<span aria-hidden=\"true\">\u201C</span>To dine beneath the sun<br />is to remember where<br />we come from.<cite>\u2014 CHEF SOLEN</cite>";
 
     const lambImage = document.createElement("img");
     lambImage.src = lambRack;
@@ -150,8 +182,25 @@ function createMenuPage(content) {
 
     const closing = document.createElement("div");
     closing.classList.add("menu-closing");
-    closing.innerHTML =
-        "<div class=\"mini-orbit\" aria-hidden=\"true\">â˜‰</div><p>SOURCED BEYOND.<br />REFINED WITHIN.<br />SHARED FOREVER.</p><span aria-hidden=\"true\">âœ¦</span>";
+    const closingSeal = document.createElement("img");
+    closingSeal.classList.add("mini-orbit");
+    closingSeal.src = orbitalSealIcon;
+    closingSeal.alt = "";
+    const closingText = document.createElement("p");
+    closingText.innerHTML = "SOURCED BEYOND.<br />REFINED WITHIN.<br />SHARED FOREVER.";
+    const closingDivider = document.createElement("div");
+    closingDivider.classList.add("closing-divider");
+    const closingLineLeft = document.createElement("span");
+    const closingStar = document.createElement("img");
+    closingStar.src = solarStarIcon;
+    closingStar.alt = "";
+    const closingLineRight = document.createElement("span");
+    closingDivider.appendChild(closingLineLeft);
+    closingDivider.appendChild(closingStar);
+    closingDivider.appendChild(closingLineRight);
+    closing.appendChild(closingSeal);
+    closing.appendChild(closingText);
+    closing.appendChild(closingDivider);
 
     lower.appendChild(quote);
     lower.appendChild(lambImage);

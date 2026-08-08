@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <defs>
+    <radialGradient id="seal-sun" cx="38%" cy="34%" r="70%">
+      <stop offset="0" stop-color="#FFF0BD"/>
+      <stop offset="0.52" stop-color="#E5B252"/>
+      <stop offset="1" stop-color="#A66327"/>
+    </radialGradient>
+  </defs>
+  <circle cx="48" cy="48" r="34" stroke="#D6A249" stroke-width="1"/>
+  <circle cx="48" cy="48" r="28" stroke="#895C26" stroke-width="0.55" stroke-dasharray="1.5 4"/>
+  <path d="M48 8V29M48 67V88M8 48H29M67 48H88" stroke="#B77C32" stroke-width="0.75" stroke-linecap="round"/>
+  <path d="M19.8 19.8L34.5 34.5M61.5 61.5L76.2 76.2M76.2 19.8L61.5 34.5M34.5 61.5L19.8 76.2" stroke="#8F6028" stroke-width="0.55" stroke-linecap="round"/>
+  <ellipse cx="48" cy="48" rx="25" ry="10.5" stroke="#E0B259" stroke-width="0.75" transform="rotate(-18 48 48)"/>
+  <ellipse cx="48" cy="48" rx="25" ry="10.5" stroke="#A56F2C" stroke-width="0.6" transform="rotate(52 48 48)"/>
+  <circle cx="48" cy="48" r="10.5" stroke="#E7BC63" stroke-width="0.9"/>
+  <circle cx="48" cy="48" r="5.2" fill="url(#seal-sun)"/>
+  <path d="M48 34V39M48 57V62M34 48H39M57 48H62" stroke="#F0CC78" stroke-width="0.65" stroke-linecap="round"/>
+  <circle cx="48" cy="8" r="2" stroke="#D8A64C" stroke-width="0.7"/>
+  <circle cx="88" cy="48" r="2" stroke="#D8A64C" stroke-width="0.7"/>
+  <circle cx="48" cy="88" r="2" stroke="#D8A64C" stroke-width="0.7"/>
+  <circle cx="8" cy="48" r="2" stroke="#D8A64C" stroke-width="0.7"/>
+  <circle cx="25.5" cy="35.8" r="1.5" fill="#E8BD64"/>
+  <circle cx="67.5" cy="63.6" r="1.2" fill="#C98D38"/>
+</svg>

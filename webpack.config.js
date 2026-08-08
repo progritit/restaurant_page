@@ -13,7 +13,7 @@ module.exports = {
         assetModuleFilename: "assets/[name][ext]",
     },
 
-    devtool: "inline-source-map",
+    devtool: "eval-source-map",
 
     devServer: {
         port: 8080,

@@ -2,8 +2,13 @@ import homeHero from "../assets/images/home/home-hero.webp";
 import solarFlora from "../assets/images/home/solar-flora.webp";
 import orbitalProvisions from "../assets/images/home/orbital-provisions.webp";
 import stellarFinishes from "../assets/images/home/stellar-finishes.webp";
+import solarStarIcon from "../assets/icons/solar-star.svg";
+import solarFloraIcon from "../assets/icons/solar-flora.svg";
+import orbitalProvisionsIcon from "../assets/icons/orbital-provisions.svg";
+import stellarFinishesIcon from "../assets/icons/stellar-finishes.svg";
+import arrowRightIcon from "../assets/icons/arrow-right.svg";
 
-function createExperienceCard(imageSource, imageAlt, title, description, symbol) {
+function createExperienceCard(imageSource, imageAlt, title, description, iconSource) {
     const card = document.createElement("article");
     card.classList.add("experience-card");
 
@@ -15,10 +20,10 @@ function createExperienceCard(imageSource, imageAlt, title, description, symbol)
     const cardFooter = document.createElement("div");
     cardFooter.classList.add("experience-card-footer");
 
-    const icon = document.createElement("span");
+    const icon = document.createElement("img");
     icon.classList.add("experience-icon");
-    icon.setAttribute("aria-hidden", "true");
-    icon.textContent = symbol;
+    icon.src = iconSource;
+    icon.alt = "";
 
     const copy = document.createElement("div");
 
@@ -63,7 +68,14 @@ function createHomePage(content, showMenu, showContact) {
     const divider = document.createElement("div");
     divider.classList.add("solar-divider");
     divider.setAttribute("aria-hidden", "true");
-    divider.innerHTML = "<span></span><b>âœ¦</b><span></span>";
+    const dividerLeft = document.createElement("span");
+    const dividerStar = document.createElement("img");
+    dividerStar.src = solarStarIcon;
+    dividerStar.alt = "";
+    const dividerRight = document.createElement("span");
+    divider.appendChild(dividerLeft);
+    divider.appendChild(dividerStar);
+    divider.appendChild(dividerRight);
 
     const intro = document.createElement("p");
     intro.classList.add("hero-intro");
@@ -76,7 +88,12 @@ function createHomePage(content, showMenu, showContact) {
     const menuButton = document.createElement("button");
     menuButton.classList.add("gold-button");
     menuButton.type = "button";
-    menuButton.innerHTML = "EXPLORE THE MENU <span aria-hidden=\"true\">âœ¦</span>";
+    menuButton.textContent = "EXPLORE THE MENU";
+    const menuButtonIcon = document.createElement("img");
+    menuButtonIcon.classList.add("button-icon");
+    menuButtonIcon.src = solarStarIcon;
+    menuButtonIcon.alt = "";
+    menuButton.appendChild(menuButtonIcon);
     menuButton.addEventListener("click", showMenu);
 
     const reservationButton = document.createElement("button");
@@ -103,14 +120,21 @@ function createHomePage(content, showMenu, showContact) {
 
     const eyebrow = document.createElement("p");
     eyebrow.classList.add("eyebrow");
-    eyebrow.innerHTML = "<span aria-hidden=\"true\">âœ¦</span> THE HELIOS EXPERIENCE";
+    const eyebrowIcon = document.createElement("img");
+    eyebrowIcon.classList.add("eyebrow-icon");
+    eyebrowIcon.src = solarStarIcon;
+    eyebrowIcon.alt = "";
+    const eyebrowText = document.createElement("span");
+    eyebrowText.textContent = "THE HELIOS EXPERIENCE";
+    eyebrow.appendChild(eyebrowIcon);
+    eyebrow.appendChild(eyebrowText);
 
     const experienceTitle = document.createElement("h2");
     experienceTitle.textContent = "Ingredients from the Sun. Crafted for You.";
 
     const experienceText = document.createElement("p");
     experienceText.textContent =
-        "Our cuisine honors Solarisâ€”its elements, its cultures, its explorers.";
+        "Our cuisine honors Solaris\u2014its elements, its cultures, its explorers.";
 
     experienceHeading.appendChild(eyebrow);
     experienceHeading.appendChild(experienceTitle);
@@ -124,7 +148,7 @@ function createHomePage(content, showMenu, showContact) {
             "Solar Flora plant-forward dish",
             "SOLAR FLORA",
             "Vibrant. Seasonal. Harmonious.",
-            "â§",
+            solarFloraIcon,
         ),
     );
     cards.appendChild(
@@ -133,7 +157,7 @@ function createHomePage(content, showMenu, showContact) {
             "Orbital Provisions signature dish",
             "ORBITAL PROVISIONS",
             "Sourced beyond. Refined within.",
-            "âŠ™",
+            orbitalProvisionsIcon,
         ),
     );
     cards.appendChild(
@@ -142,14 +166,19 @@ function createHomePage(content, showMenu, showContact) {
             "Stellar Finishes crystal sphere dessert",
             "STELLAR FINISHES",
             "Sweet moments. Lasting impressions.",
-            "â—’",
+            stellarFinishesIcon,
         ),
     );
 
     const discoverButton = document.createElement("button");
     discoverButton.classList.add("text-button");
     discoverButton.type = "button";
-    discoverButton.textContent = "DISCOVER THE FULL MENU  â†’";
+    discoverButton.textContent = "DISCOVER THE FULL MENU";
+    const discoverIcon = document.createElement("img");
+    discoverIcon.classList.add("arrow-icon");
+    discoverIcon.src = arrowRightIcon;
+    discoverIcon.alt = "";
+    discoverButton.appendChild(discoverIcon);
     discoverButton.addEventListener("click", showMenu);
 
     experience.appendChild(experienceHeading);

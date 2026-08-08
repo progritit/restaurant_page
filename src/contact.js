@@ -1,13 +1,23 @@
 import diningRoom from "../assets/images/contact/helios-dining-room.webp";
+import solarStarIcon from "../assets/icons/solar-star.svg";
+import phoneIcon from "../assets/icons/phone.svg";
+import mailIcon from "../assets/icons/mail.svg";
+import globeIcon from "../assets/icons/globe.svg";
+import networkIcon from "../assets/icons/network.svg";
+import locationIcon from "../assets/icons/location.svg";
+import arrowRightIcon from "../assets/icons/arrow-right.svg";
+import instagramIcon from "../assets/icons/instagram.svg";
+import heliosJournalIcon from "../assets/icons/helios-journal.svg";
+import heliosEmblem from "../assets/icons/helios-emblem.svg";
 
-function createInfoRow(symbol, lines) {
+function createInfoRow(iconSource, lines) {
     const row = document.createElement("div");
     row.classList.add("contact-info-row");
 
-    const icon = document.createElement("span");
+    const icon = document.createElement("img");
     icon.classList.add("contact-icon");
-    icon.setAttribute("aria-hidden", "true");
-    icon.textContent = symbol;
+    icon.src = iconSource;
+    icon.alt = "";
 
     const text = document.createElement("div");
 
@@ -27,7 +37,14 @@ function createBottomColumn(title, lines) {
     column.classList.add("contact-bottom-column");
 
     const heading = document.createElement("h2");
-    heading.innerHTML = "<span aria-hidden=\"true\">âœ¦</span> " + title;
+    const headingIcon = document.createElement("img");
+    headingIcon.classList.add("heading-solar-icon");
+    headingIcon.src = solarStarIcon;
+    headingIcon.alt = "";
+    const headingText = document.createElement("span");
+    headingText.textContent = " " + title;
+    heading.appendChild(headingIcon);
+    heading.appendChild(headingText);
     column.appendChild(heading);
 
     for (let i = 0; i < lines.length; i += 1) {
@@ -44,7 +61,14 @@ function createReservationForm() {
     form.classList.add("reservation-form");
 
     const heading = document.createElement("h2");
-    heading.innerHTML = "<span aria-hidden=\"true\">âœ¦</span> RESERVE YOUR TABLE";
+    const headingIcon = document.createElement("img");
+    headingIcon.classList.add("heading-solar-icon");
+    headingIcon.src = solarStarIcon;
+    headingIcon.alt = "";
+    const headingText = document.createElement("span");
+    headingText.textContent = "RESERVE YOUR TABLE";
+    heading.appendChild(headingIcon);
+    heading.appendChild(headingText);
     form.appendChild(heading);
 
     const nameLabel = document.createElement("label");
@@ -124,7 +148,12 @@ function createReservationForm() {
     const submitButton = document.createElement("button");
     submitButton.classList.add("gold-button", "reservation-submit");
     submitButton.type = "submit";
-    submitButton.innerHTML = "REQUEST A TABLE <span aria-hidden=\"true\">âœ¦</span>";
+    submitButton.textContent = "REQUEST A TABLE";
+    const submitIcon = document.createElement("img");
+    submitIcon.classList.add("button-icon");
+    submitIcon.src = solarStarIcon;
+    submitIcon.alt = "";
+    submitButton.appendChild(submitIcon);
 
     const note = document.createElement("p");
     note.classList.add("form-note");
@@ -169,7 +198,14 @@ function createContactPage(content) {
     const divider = document.createElement("div");
     divider.classList.add("solar-divider");
     divider.setAttribute("aria-hidden", "true");
-    divider.innerHTML = "<span></span><b>âœ¦</b><span></span>";
+    const dividerLeft = document.createElement("span");
+    const dividerStar = document.createElement("img");
+    dividerStar.src = solarStarIcon;
+    dividerStar.alt = "";
+    const dividerRight = document.createElement("span");
+    divider.appendChild(dividerLeft);
+    divider.appendChild(dividerStar);
+    divider.appendChild(dividerRight);
 
     const intro = document.createElement("p");
     intro.classList.add("contact-intro");
@@ -184,10 +220,10 @@ function createContactPage(content) {
     copy.appendChild(divider);
     copy.appendChild(intro);
     copy.appendChild(getInTouch);
-    copy.appendChild(createInfoRow("âŒ•", ["+1 (888) HELIOS-1", "+1 (888) 435-4671"]));
-    copy.appendChild(createInfoRow("âœ‰", ["hello@helioscantina.sol"]));
-    copy.appendChild(createInfoRow("â—Ž", ["helioscantina.sol"]));
-    copy.appendChild(createInfoRow("âŒ", ["@helioscantina", "Solaris Network"]));
+    copy.appendChild(createInfoRow(phoneIcon, ["+1 (888) HELIOS-1", "+1 (888) 435-4671"]));
+    copy.appendChild(createInfoRow(mailIcon, ["hello@helioscantina.sol"]));
+    copy.appendChild(createInfoRow(globeIcon, ["helioscantina.sol"]));
+    copy.appendChild(createInfoRow(networkIcon, ["@helioscantina", "Solaris Network"]));
 
     const formWrapper = document.createElement("div");
     formWrapper.classList.add("form-wrapper");
@@ -201,7 +237,7 @@ function createContactPage(content) {
     bottom.classList.add("contact-bottom");
 
     const visit = createBottomColumn("VISIT US", [
-        "Helios Orbital District Â· Ring 3",
+        "Helios Orbital District \u00B7 Ring 3",
         "Solaris Station",
         "Above the Meridian Promenade",
         "Sol System",
@@ -209,14 +245,20 @@ function createContactPage(content) {
     const locationButton = document.createElement("button");
     locationButton.classList.add("small-outline-button");
     locationButton.type = "button";
-    locationButton.textContent = "âŒ–  VIEW LOCATION";
+    const locationButtonIcon = document.createElement("img");
+    locationButtonIcon.src = locationIcon;
+    locationButtonIcon.alt = "";
+    const locationButtonText = document.createElement("span");
+    locationButtonText.textContent = "VIEW LOCATION";
+    locationButton.appendChild(locationButtonIcon);
+    locationButton.appendChild(locationButtonText);
     visit.appendChild(locationButton);
 
     const hours = createBottomColumn("HOURS OF LIGHT", [
         "Monday                                      Closed",
-        "Tuesday â€“ Thursday          5:00 PM â€“ 11:00 PM",
-        "Friday â€“ Saturday             5:00 PM â€“ 12:30 AM",
-        "Sunday                                  5:00 PM â€“ 10:00 PM",
+        "Tuesday \u2013 Thursday          5:00 PM \u2013 11:00 PM",
+        "Friday \u2013 Saturday             5:00 PM \u2013 12:30 AM",
+        "Sunday                                  5:00 PM \u2013 10:00 PM",
         "Hours follow the Solaris Standard (SS).",
     ]);
     hours.classList.add("hours-column");
@@ -227,7 +269,12 @@ function createContactPage(content) {
     const inquireButton = document.createElement("button");
     inquireButton.classList.add("small-outline-button");
     inquireButton.type = "button";
-    inquireButton.textContent = "INQUIRE NOW  âœ¦";
+    inquireButton.textContent = "INQUIRE NOW";
+    const inquireIcon = document.createElement("img");
+    inquireIcon.classList.add("button-icon");
+    inquireIcon.src = solarStarIcon;
+    inquireIcon.alt = "";
+    inquireButton.appendChild(inquireIcon);
     events.appendChild(inquireButton);
 
     const connected = createBottomColumn("STAY CONNECTED", [
@@ -242,15 +289,41 @@ function createContactPage(content) {
     const emailButton = document.createElement("button");
     emailButton.type = "button";
     emailButton.setAttribute("aria-label", "Join mailing list");
-    emailButton.textContent = "â†’";
+    const emailButtonIcon = document.createElement("img");
+    emailButtonIcon.src = arrowRightIcon;
+    emailButtonIcon.alt = "";
+    emailButton.appendChild(emailButtonIcon);
     emailRow.appendChild(emailInput);
     emailRow.appendChild(emailButton);
     connected.appendChild(emailRow);
 
     const socials = document.createElement("div");
     socials.classList.add("socials");
-    socials.innerHTML =
-        "<span aria-label=\"Instagram\">â—Ž</span><span aria-label=\"Solaris Network\">âŒ</span><span aria-label=\"Helios Journal\">â—‰</span>";
+
+    const instagramSocial = document.createElement("span");
+    instagramSocial.setAttribute("aria-label", "Instagram");
+    const instagramImage = document.createElement("img");
+    instagramImage.src = instagramIcon;
+    instagramImage.alt = "";
+    instagramSocial.appendChild(instagramImage);
+
+    const networkSocial = document.createElement("span");
+    networkSocial.setAttribute("aria-label", "Solaris Network");
+    const networkImage = document.createElement("img");
+    networkImage.src = networkIcon;
+    networkImage.alt = "";
+    networkSocial.appendChild(networkImage);
+
+    const journalSocial = document.createElement("span");
+    journalSocial.setAttribute("aria-label", "Helios Journal");
+    const journalImage = document.createElement("img");
+    journalImage.src = heliosJournalIcon;
+    journalImage.alt = "";
+    journalSocial.appendChild(journalImage);
+
+    socials.appendChild(instagramSocial);
+    socials.appendChild(networkSocial);
+    socials.appendChild(journalSocial);
     connected.appendChild(socials);
 
     bottom.appendChild(visit);
@@ -262,12 +335,21 @@ function createContactPage(content) {
     footer.classList.add("site-footer");
 
     const copyright = document.createElement("p");
-    copyright.textContent = "Â© " + new Date().getFullYear() + " Helios Cantina. All rights reserved.";
+    copyright.textContent = "\u00A9 " + new Date().getFullYear() + " Helios Cantina. All rights reserved.";
 
     const footerBrand = document.createElement("div");
     footerBrand.classList.add("footer-brand");
-    footerBrand.innerHTML =
-        "<span class=\"footer-sun\" aria-hidden=\"true\">â˜‰</span><strong>HELIOS CANTINA</strong><small>Solar Gastronomy Â· Solaris Network</small>";
+    const footerEmblem = document.createElement("img");
+    footerEmblem.classList.add("footer-emblem");
+    footerEmblem.src = heliosEmblem;
+    footerEmblem.alt = "";
+    const footerName = document.createElement("strong");
+    footerName.textContent = "HELIOS CANTINA";
+    const footerTagline = document.createElement("small");
+    footerTagline.textContent = "Solar Gastronomy \u00B7 Solaris Network";
+    footerBrand.appendChild(footerEmblem);
+    footerBrand.appendChild(footerName);
+    footerBrand.appendChild(footerTagline);
 
     const footerLinks = document.createElement("div");
     footerLinks.classList.add("footer-links");
