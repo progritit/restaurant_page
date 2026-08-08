@@ -175,10 +175,12 @@ function createMenuPage(content) {
     const lambImage = document.createElement("img");
     lambImage.src = lambRack;
     lambImage.alt = "Solaris lamb rack";
+    lambImage.classList.add("menu-lower-image");
 
     const dessertImage = document.createElement("img");
     dessertImage.src = stellarCitrus;
     dessertImage.alt = "Stellar citrus dessert";
+    dessertImage.classList.add("menu-lower-image");
 
     const closing = document.createElement("div");
     closing.classList.add("menu-closing");
